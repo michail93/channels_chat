@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  postgresql:
+    container_name: "postgresql_container"
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    environment:
+       POSTGRES_USER : "michail"
+       POSTGRES_PASSWORD : "1234"
+       POSTGRES_DB : "chat"
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    restart: always
+
+  redis:
+      container_name: "redis_container"
+      image: redis
+      ports:
+        - "6379:6379"
+      restart: always
+
+volumes:
+  postgres_volume:
