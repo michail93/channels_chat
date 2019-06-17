@@ -19,7 +19,6 @@ class AsyncChatConsumer(AsyncWebsocketConsumer):
 
     async def disconnect(self, code):
 
-        print(f"line 22: code - {code}")
 
         await  self.channel_layer.group_discard(
             self.group_name,
@@ -41,7 +40,6 @@ class AsyncChatConsumer(AsyncWebsocketConsumer):
         )
 
     async def chat_message(self, event):
-        print(f"line 44: event - {event}")
 
         message = event["message"]
 
